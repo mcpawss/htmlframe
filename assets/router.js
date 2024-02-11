@@ -25,6 +25,11 @@ export default async function createRouter(target1, target2) {
       if (data.buttonIndex === 2) {
         return res.send(target2)
       }
+      if (data.buttonIndex === 4) {
+        const newRandomImage = await getDailyImage();
+        const newHtml = target1.replace("https://f4.bcbits.com/img/a0600385591_16.jpg", newRandomImage);
+        return res.send(newHtml);
+      }
     }
     return res.status(400).end()
   }
