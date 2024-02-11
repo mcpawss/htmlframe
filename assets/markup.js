@@ -1,15 +1,30 @@
-export const a = `<html lang="en">
-<head>
-  <title>Minimalist Frame - A</title>
-  <meta property="fc:frame" content="vNext" />
-  <meta
-    property="fc:frame:image"
-    content="https://minimalist-frame.vercel.app/img/a.gif"
-  />
+export const getRandomImageMarkup = () => {
+  const images = [
+    "https://lh3.googleusercontent.com/Xtf7YrzThRSbnHqUXHAGqwaUlRQ9X2zBA8ZiIJUkpMAjFMgvA1AnBfYzsjRWgGAnUPPrHIl60iJ6iJMPz1kthCfY58euKuArT79D8dE",
+    "https://www.okx.com/cdn/nft/files/ffe6d963-f11b-4d98-950a-89ba067fde14.webp/type=detail?x-oss-process=image/resize,w_784,type_6/ignore-error,1",
+  ];
+
+  // Get the current date
+  const currentDate = new Date();
+  // Use the date to determine the index of the image to display
+  const imageIndex = currentDate.getDate() % images.length;
+
+  // Create the markup for the image
+  const imageUrl = images[imageIndex];
+  return `<html lang="en">
+            <head>
+              <title>Minimalist Frame - A</title>
+              <meta property="fc:frame" content="vNext" />
+              <meta
+                property="fc:frame:image"
+                content="${imageUrl}"
+              />
+              
   <meta
     property="og:image"
-    content="https://minimalist-frame.vercel.app/img/a.png"
+    content="${imageUrl}"
   />
+  
   <meta property="fc:frame:image:aspect_ratio" content="1:1" />
   <meta property="fc:frame:button:1" content="Go to B" />
   <meta property="fc:frame:button:2" content="Go to C" />
@@ -23,11 +38,13 @@ export const a = `<html lang="en">
     property="fc:frame:post_url"
     content="https://minimalist-frame.vercel.app/api/frame-a"
   />
-</head>
-<body>
-  <h1>Minimalist Frame - A</h1>
-</body>
-</html>`
+            </head>
+            <body>
+              <h1>Minimalist Frame - A</h1>
+              <img src="${imageUrl}" alt="Random Image">
+            </body>
+          </html>`;
+};
 
 export const b = `<html lang="en">
 <head>
