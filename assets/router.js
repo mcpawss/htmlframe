@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 const getDailyImage = async () => {
   const date = new Date();
   const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 86400000);
-  const response = await fetch(`https://source.unsplash.com/collection/your_collection_id/${dayOfYear}/1600x900`);
+  const response = await fetch(`https://source.unsplash.com/collection/WM2WLKriadU/${dayOfYear}/1600x900`);
   return response.url;
 }
 
