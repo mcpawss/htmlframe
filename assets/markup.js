@@ -9,8 +9,7 @@ export const getRandomImageMarkup = () => {
   // Use the date to determine the index of the image to display
   const imageIndex = currentDate.getDate() % images.length;
 
-  // Create the markup for the image
-  const imageUrl = images[imageIndex];
+export const getRandomImageMarkupWithScript = (imageUrl) => {
   return `<html lang="en">
             <head>
               <title>Minimalist Frame - A</title>
@@ -19,33 +18,21 @@ export const getRandomImageMarkup = () => {
                 property="fc:frame:image"
                 content="${imageUrl}"
               />
-              
-  <meta
-    property="og:image"
-    content="${imageUrl}"
-  />
-  
-  <meta property="fc:frame:image:aspect_ratio" content="1:1" />
-  <meta property="fc:frame:button:1" content="Go to B" />
-  <meta property="fc:frame:button:2" content="Go to C" />
-  <meta property="fc:frame:button:3" content="View source code" />
-  <meta property="fc:frame:button:3:action" content="link" />
-  <meta
-    property="fc:frame:button:3:target"
-    content="https://github.com/InsideTheSim/minimalist-frame"
-  />
-  <meta
-    property="fc:frame:post_url"
-    content="https://minimalist-frame.vercel.app/api/frame-a"
-  />
+              <meta
+                property="og:image"
+                content="${imageUrl}"
+                id="ogImage"
+              />
+              <script>
+                document.getElementById('ogImage').setAttribute('content', '${imageUrl}');
+              </script>
             </head>
             <body>
               <h1>Minimalist Frame - A</h1>
-              <img src="${imageUrl}" alt="Random Image">
             </body>
           </html>`;
 };
-
+  
 export const b = `<html lang="en">
 <head>
   <title>Minimalist Frame - B</title>
