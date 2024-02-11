@@ -1,4 +1,7 @@
+import { getRandomImageMarkup } from "../assets/markup";
 import { b, c } from "../assets/markup"
 import createRouter from "../assets/router"
 
-export default createRouter(b, c)
+const randomImageMarkup = getRandomImageMarkup();
+
+export default createRouter(randomImageMarkup);
