@@ -9,7 +9,7 @@ const getDailyImage = async () => {
 
 export default async function createRouter(target1, target2) {
   const randomImage = await getDailyImage();
-  const html = target1.replace("placeholder_image_url", randomImage);
+  const html = target1.replace("https://f4.bcbits.com/img/a0600385591_16.jpg", randomImage);
   return function (req, res) {
     if (req.method === "POST") {
       const data = req.body.untrustedData
